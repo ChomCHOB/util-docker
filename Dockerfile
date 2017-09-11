@@ -10,7 +10,8 @@ LABEL maintainer="support@chomchob.com"
 RUN apk add --no-cache \
 		ca-certificates \
     git \
-    openssh-client
+    openssh-client \
+    ansible
 
 ENV DOCKER_CHANNEL stable
 ENV DOCKER_VERSION 17.06.2-ce
