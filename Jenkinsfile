@@ -1,15 +1,12 @@
 def gitUrl = 'https://github.com/ChomCHOB/util-docker'
 def gitBranch = 'refs/heads/master'
 
-def label = "buildpod.${env.JOB_NAME}.${env.BUILD_NUMBER}".replace('-', '_').replace('/', '_')
+def label = "pod.${env.JOB_NAME}".replace('-', '_').replace('/', '_').take(55) + ".${env.BUILD_NUMBER}"
 
 podTemplate(
   label: label,
 ) {
 node(label) {
-
-  echo sh(returnStdout: true, script: 'env')
-  
   build(
     job: '../../bitbucket-infra/ccif-build-docker/master', 
     parameters: [
