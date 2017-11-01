@@ -22,19 +22,18 @@ RUN apk add --no-cache \
 
 ENV INSTALL_DOCKER=1 \
     DOCKER_CHANNEL="stable" \
-    DOCKER_VERSION="17.06.2-ce" \
+    DOCKER_VERSION="17.10.0-ce" \
     \
     INSTALL_GOOGLE_CLOUD_SDK=1 \
-    CLOUD_SDK_VERSION="171.0.0" \
+    CLOUD_SDK_VERSION="177.0.0" \
     CLOUD_SDK_FILENAME="google-cloud-sdk-${CLOUD_SDK_VERSION}-linux-x86_64.tar.gz" \
-    ADDITIONAL_COMPONENTS="app kubectl alpha beta" \
+    ADDITIONAL_COMPONENTS="kubectl beta alpha docker-credential-gcr" \
     \
     INSTALL_KUBECTL=0 \
     KUBECTL_VERSION="1.6.6" \
     \
     INSTALL_HELM=1 \
-    HELM_VERSION="2.6.1" \
-    HELM_FILENAME="helm-v${HELM_VERSION}-linux-amd64.tar.gz"
+    HELM_VERSION="2.6.2" 
 
 ENV PATH /google-cloud-sdk/bin:$PATH
 
@@ -107,11 +106,12 @@ RUN set -ex; \
   \
   chmod +x /usr/local/bin/kubectl; \
   ) \
-  || echo 'skip install helm'; \
+  || echo 'skip install kubectl'; \
   \
   \
   [[ $INSTALL_HELM -eq 1 ]] && \
   ( \
+  HELM_FILENAME="helm-v${HELM_VERSION}-linux-amd64.tar.gz" && \
   if ! curl -fL -o /tmp/${HELM_FILENAME} "http://storage.googleapis.com/kubernetes-helm/${HELM_FILENAME}"; then \
     echo >&2 "error: failed to download 'helm-${HELM_VERSION}'"; \
     exit 1; \
