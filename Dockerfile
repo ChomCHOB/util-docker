@@ -22,7 +22,7 @@ RUN apk add --no-cache \
 
 ENV INSTALL_DOCKER=1 \
     DOCKER_CHANNEL="stable" \
-    DOCKER_VERSION="17.10.0-ce" \
+    DOCKER_VERSION="17.09.0-ce" \
     \
     INSTALL_GOOGLE_CLOUD_SDK=1 \
     CLOUD_SDK_VERSION="177.0.0" \
