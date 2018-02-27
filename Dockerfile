@@ -25,15 +25,15 @@ ENV INSTALL_DOCKER=1 \
     DOCKER_VERSION="17.09.0-ce" \
     \
     INSTALL_GOOGLE_CLOUD_SDK=1 \
-    CLOUD_SDK_VERSION="177.0.0" \
+    CLOUD_SDK_VERSION="190.0.1" \
     CLOUD_SDK_FILENAME="google-cloud-sdk-${CLOUD_SDK_VERSION}-linux-x86_64.tar.gz" \
     ADDITIONAL_COMPONENTS="kubectl beta alpha docker-credential-gcr" \
     \
     INSTALL_KUBECTL=0 \
-    KUBECTL_VERSION="1.6.6" \
+    KUBECTL_VERSION="1.9.3" \
     \
     INSTALL_HELM=1 \
-    HELM_VERSION="2.7.2" 
+    HELM_VERSION="2.8.1"
 
 ENV PATH /google-cloud-sdk/bin:$PATH
 
