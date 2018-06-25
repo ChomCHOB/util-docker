@@ -33,7 +33,7 @@ ENV INSTALL_DOCKER=1 \
     KUBECTL_VERSION="1.9.3" \
     \
     INSTALL_HELM=1 \
-    HELM_VERSION="2.8.2"
+    HELM_VERSION="2.9.1"
 
 ENV PATH /google-cloud-sdk/bin:$PATH
 
